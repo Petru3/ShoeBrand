@@ -1,0 +1,5 @@
+#bed3f0 - color of background logo (blue cyan)
+#BDD3EF - color of logo paint (	DeepSkyBlue)
+#107CF1 - color of logo paint but more shadow 
+
+https://codemyui.com/tag/scroll-animation/  -site

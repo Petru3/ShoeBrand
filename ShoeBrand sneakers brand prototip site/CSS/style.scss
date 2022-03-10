@@ -1,0 +1,1272 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+@font-face {
+    font-family:Poppins;
+    src: url(../Fonts/Poppins-Black.otf);
+}
+
+@font-face {
+    font-family:Poppins-M;
+    src: url(../Fonts/Poppins-Medium.otf);
+}
+@font-face {
+    font-family:Raleway-Light;
+    src: url(../Fonts/Raleway-Light.otf);
+}
+// Tablet
+$tablet-aspect : 1280px;
+
+@mixin tablet {
+    @media(max-width: #{$tablet-aspect}) {
+        @content;
+    }  
+}
+// Stop
+
+// Tablet-G50
+$tablet-g50 : 880px;
+
+@mixin tablet-g50 {
+    @media(max-width: #{$tablet-g50}) {
+        @content;
+    }  
+}
+// Stop
+
+// Phone
+$phone :415px;
+
+@mixin phone {
+    @media(max-width: #{$phone}) {
+        @content;
+    }  
+}
+// Stop
+
+// Ultra wide monitor
+$ultraw :3440px;
+
+@mixin uw {
+    @media(max-width: #{$ultraw}) {
+        @content;
+    }  
+}
+// Stop
+
+html {
+    scroll-behavior:smooth;
+  }
+body{
+    font-family:'Poppins-M';
+}
+::-webkit-scrollbar {
+    display: none;
+}
+html, body {
+    overflow-x: hidden;
+    @include tablet{
+        overflow-x: hidden;
+    }
+    @include tablet-g50{
+        overflow-x: hidden;
+    }
+    @include phone{
+        overflow-x:hidden;
+    }
+}
+body {
+    position: relative;
+    @include tablet{
+        position: relative;
+    }
+    @include tablet-g50{
+        position:relative;
+    }
+    @include phone{
+        position: relative;
+    }
+    @include uw{
+        width:57.5%;
+        left:650px;
+    }
+}
+
+.hero-img{
+    position:absolute;                                         
+    top:0;
+    right:-49.5px;
+    background: url('../Assets/1_569874_ZM_ALT1B.jpg');
+    width:67em;
+    height:52.5em;
+    background-repeat: no-repeat;
+    z-index: -1;
+
+    @include tablet {
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 100%);
+        background-position: center center;
+        width:1280px;
+        height:90%;
+        position: absolute;
+        top:-1000px;
+        left:0px;
+        z-index: -5;
+    }
+    @include tablet-g50{
+        clip-path: polygon(100% 0, 50% 50%, 100% 100%, 0 100%, 0 0);
+        background-position: center center;
+        width:880px;
+        height:100%;
+        position: absolute;
+        z-index: -5;
+    }
+    @include phone{
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0% 50%);
+        height:2500px;
+        width: 415px;
+        position: absolute;
+        z-index:-5;
+    }
+}
+
+.block{
+    width:33.5em;
+    height:3px;
+    position:relative;
+    background-color: black;
+    top:52.5em;
+    left:55em;
+
+    animation: move-right 2s alternate-reverse infinite;
+
+    border-radius: 100px;
+
+    @include tablet {
+        visibility: hidden;
+        display: none;
+    }
+    @include tablet-g50{
+        visibility: hidden;
+    }
+    @include phone{
+        visibility: hidden;
+    }
+    @include uw{
+        visibility: hidden;
+    }
+}
+
+@keyframes move-right{
+    from{ 
+        transform:translateX(550px)
+    }
+    to{
+        transform:translateX(17px)
+    }
+}
+
+$colors: (
+    primary: #b4a9e1,
+    primary-dark: darken(#b4a9e1, 50%),
+);
+
+.logo{
+    color:black;
+    font-weight:bold;
+    position: relative;
+    display: flex;
+    font-size:larger;
+    top: 1.3em;
+    left:16.7em;
+    text-decoration: none;
+    background-color: #2b2b2b;
+    width: 110px;
+    border-radius: 50px;
+    padding-left: 2px;
+
+    :hover{
+        transform: rotate(-360deg);
+        transition: 1.5s;
+    }
+    @include tablet {
+        opacity: 77.5%;
+        color:rgb(248, 248, 248);
+        width:147.5px;
+        padding-left: 10px;
+        border-radius: 15px;
+        height:40px;
+        top:40px;
+        left: 50px;
+        font-size:25px;
+    }
+    @include phone{
+        color:rgb(250, 250, 250) !important;
+        font-size:15px;
+        width:95px;
+        top:20px;
+        left:30px;
+        height:25px;
+    }
+}
+
+header{
+    display:block;
+    justify-content: space-between;
+    nav{
+        .drop{
+            :hover{
+                transition: 800ms;
+                text-decoration: none;
+                background-color: #2b2b2b;
+                opacity: 80%;
+                filter: blur(40%);
+                border-radius: 30px;
+
+                @include tablet{
+                    background-color: transparent;
+                    color:black;
+                }
+                
+                @include tablet-g50{
+                    background-color: transparent;
+                    color:#888585;
+                    text-align: center;
+                }
+                
+            }
+            :focus{
+                @include tablet{
+                    visibility: hidden;
+                }
+                @include tablet-g50{
+                    visibility: hidden;
+                }
+                @include phone{
+                    color:white;
+                    border-radius: 0%;
+                    background-color: #8d5ac7;
+                }
+            }
+        }
+    }
+
+        ul{
+            position: relative;
+            display: flex;
+            list-style-type:none;
+            z-index: 1;
+            float: right;
+
+            top:.3em;
+            right:11em;
+            @include tablet {
+                position: relative;
+                right:70px;
+                top:-5px;
+                background-color:rgb(43, 42, 42);
+                opacity: 80%;
+                border-radius: 20px;
+            }
+            @include tablet-g50{
+                background-color: transparent;
+                top:5em;
+                right:20.1em;
+                display: list-item;
+            }
+            @include phone{
+                position:absolute;
+                display: inline-block;
+                color:#ffffff;
+                left:330px;
+                top:80px;
+                text-align: center;
+            }
+        }
+
+        li{
+            display: inline-block;
+            padding-right:9em;
+
+            @include tablet{
+                padding-top: 10px;
+                padding-left: 90px;
+                height:35px;
+            }
+            @include tablet-g50{
+                background-color: #26292b;
+                position: relative;
+                text-align: center center;
+                margin-top:.25em;
+                display: list-item;
+                left:-240px;
+                z-index: 10;
+            }
+            @include phone{
+                background-color:rgb(207, 207, 207);
+                backdrop-filter: blur(3px);
+                box-shadow: inherit  2px 2px 2px black;
+                border-radius: 5px;
+            }
+        }   
+    a{  
+        text-decoration: none;
+        color:#ffffff !important;
+
+        @include tablet-g50{
+            color:#000000 !important;
+        }
+    }
+}
+    span{
+        color:rgb(172, 18, 18);
+    }
+    
+    .menu {
+        width:2em;
+        display:flex;
+        position: absolute;
+        right:0px;
+        cursor:pointer;
+        display: none;
+
+        @include tablet-g50{
+            width:2.5em;
+            display: block;
+            position: absolute;
+            top:25px;
+            right:30px;
+        }
+        @include phone{
+            visibility: hidden;
+        }
+    }
+
+#nacv{
+    @include tablet-g50{
+        width:200px;
+        height:540px;
+        position: absolute;
+        background-color: #26292b;
+        opacity: 80%;
+        top:0px;
+        right:0px;
+        float:right;
+        z-index: -1;
+    }
+    @include phone{
+        visibility: hidden;
+        display: none;
+    }
+}
+
+@keyframes moveArrow {
+    from{
+        transform: translateY(-30px)
+    }
+    to{
+        transform: translateYT(0px)
+    }   
+}
+
+section{
+
+    h1{
+        margin-top:5em;
+        font-size:3rem;
+        line-height: 3.3rem;
+        margin-left:3em;
+        color:#202122;
+
+        @include tablet{
+            color: #f0f0f0;
+            text-shadow: -1px -1px 0 #26292b, 1px -1px 0 #26292b, -1px 1px 0 #26292b, 1px 1px 0 #26292b;
+        }
+        @include tablet-g50{
+            font-size:2em;
+            line-height: 1em;
+            margin-top:8em;
+        }
+        @include phone{
+            font-size:2em;
+            text-align: center;
+            margin-left:0em;
+        }
+    }
+
+    .subhead{
+        font-size:1.1rem;
+        position: relative;
+        padding-top:2em;
+        margin-left:8em;
+        color:#202122;
+
+        @include tablet{
+            color:#f0f0f0;
+            text-shadow: -1px -1px 0 #26292b, 1px -1px 0 #26292b, -1px 1px 0 #26292b, 1px 1px 0 #26292b;
+        }
+        @include tablet-g50{
+            font-size:1em;
+            top:-1em;
+            left:-2.1em;
+        }
+        @include phone{
+            text-align: center;
+            width:190px;
+            font-size:.8em;
+            margin-left:11em;
+        }
+    }
+
+    .down-arrow{
+        position: relative;
+        top:3em;
+        left:9em;
+        width:2.5em;
+        height:10em;
+
+        animation: moveArrow 1s alternate-reverse infinite;
+
+        @include tablet{
+            position: absolute;
+            top:500px;
+            height: 150px;
+            display:block;
+            left:1150px;
+            width:65px;
+        }
+        @include phone{
+            visibility: hidden;
+            position: relative;
+            top:-500px;
+            left:0rem;
+        }
+    }
+
+}
+
+.more-info{
+    .feature{
+        img{
+            position: relative;
+            top:31em;
+            left:67em;
+            width:31em;
+            height:19em;
+            
+            @include tablet{
+                position: relative;
+                top:700px;
+                left:580px;
+            }
+            @include tablet-g50{
+                position: absolute;
+                top:900px;
+                left: 240px;
+                width:25em;
+                height:14em;
+            }
+            @include phone{
+                top:950px;
+                left:95px;
+                width:14.5em;
+                height:9em;
+            }
+        }
+        .title-1{
+            font-size:24px;
+            font-weight:700px; 
+
+            position: relative;
+            top:26em;
+            right:41em;
+            display:block;
+            float:right;
+            color:#202122;
+
+            @include tablet{
+                position: relative;
+                top:780px;
+                right:800px;
+            }
+            @include tablet-g50{
+                position: absolute;
+                top:810px;
+                left: 380px;
+                font-size:15px;
+                width:25em;
+                height:14em;
+            }
+            @include phone{
+                font-size:15px;
+                left:165px;
+                top:860px;
+            }
+        }
+        .title-2{
+            font-size:18px;
+            font-family:'Raleway-Light';
+            font-weight:300px;
+            line-height: 1.3em;
+            text-indent: 10%;
+            text-align: right;
+            width:300px;
+
+            position: relative;
+            top:37em;
+            right:46.5em;
+            display:block;
+            float:right;
+            color:#202122;
+
+            @include tablet{
+                position: relative;
+                top:820px;
+                right:655px;
+            }
+            @include tablet-g50{
+                position: absolute;
+                top:840px;
+                left: 230px;
+                font-size:13px;
+                width:25em;
+                height:14em;
+            }
+            @include phone{
+                top:895px;
+                left:0px;
+            }
+        }
+    }
+    .feature-left{
+        img{
+            position: relative;
+            left:-3.3em;
+            top:37em;
+            width:31em;
+            height:19em;
+
+            @include tablet{
+                position: relative;
+                top:800px;
+                left:-200px;
+            }
+            @include tablet-g50{
+                position: absolute;
+                top:1400px;
+                left: 240px;
+                width:25em;
+                height:14em;
+            }
+            @include phone{
+                top:1225px;
+                left:95px;
+                width:14.5em;
+                height:9em;
+            }
+        }
+        .title-left-1{
+            font-size:24px;
+            font-weight:700px;
+
+            position: relative;
+            top:30em;
+            left:41em;
+            display:block;
+            float:left;
+            color:#202122;
+
+            @include tablet{
+                position: relative;
+                top:910px;
+                left:800px;
+            }
+            @include tablet-g50{
+                position: absolute;
+                top:1320px;
+                left:400px;
+                font-size:15px;
+                width:25em;
+                height:14em;
+            }
+            @include phone{
+                font-size:15px;
+                left:175px;
+                top:1140px;
+                z-index: 100;
+            }
+        }
+        .title-left-2{
+            font-size:18px;
+            font-family:'Raleway-Light';
+            font-weight:300px;
+            line-height: 1.3em;
+            text-align: left;
+            width:300px;
+
+            position: relative;
+            top:42.5em;
+            left:49em;
+            display:block;
+            float:left;
+            color:#202122;
+
+            @include tablet{
+                position: relative;
+                top:53em;
+                left:39em;
+            }
+            @include tablet-g50{
+                position: absolute;
+                text-align: center;
+                top:1350px;
+                left: 275px;
+                font-size:13px;
+                width:25em;
+                height:14em;
+            }
+            @include phone{
+                top:1165.75px;
+                left:80px;
+                width:20em;
+
+            }
+        }
+    }
+    .feature-right{
+        img{
+            position: relative;
+            top:40em;
+            left:67em;
+            width:31em;
+            height:19em;
+
+            @include tablet{
+                position: relative;
+                top:910px;
+                left:580px;
+            }
+            @include tablet-g50{
+                position: relative;
+                top:1450px;
+                left: 240px;
+                width:25em;
+                height:14em;
+            }
+            @include phone{
+                top:875px;
+                left:95px;
+                width:14.5em;
+                height:9em;
+            }
+        }
+        .title-right-1{
+            font-size:24px;
+            font-weight:700px; 
+
+            position: relative;
+            top:33em;
+            right:41em;
+            display:block;
+            float:right;
+            color:#202122;
+
+            @include tablet{
+                position: relative;
+                top:41.25em;
+                right:34em;
+            }
+
+            @include tablet-g50{
+                position: absolute;
+                top: 1820px;
+                left: 405px;
+                font-size:15px;
+                width:25em;
+                height:14em;
+            }
+            @include phone{
+                font-size:15px;
+                left:175px;
+                top:1420px;
+                z-index: 100;
+            }
+        }
+        .title-right-2{
+            font-size:18px;
+            font-family:'Raleway-Light';
+            font-weight:300px;
+            line-height: 1.3em;
+            text-indent: 10%;
+            text-align: right;
+            width:300px;
+
+            position: relative;
+            top:46.3em;
+            right:48.7em;
+            display:block;
+            float:right;
+            color:#202122;
+
+            @include tablet{
+                position: relative;
+                top:58em;
+                right:710px;
+            }
+
+            @include tablet-g50{
+                position: absolute;
+                text-align: center;
+                top:1850px;
+                left: 255px;
+                font-size:13px;
+                width:25em;
+                height:14em;
+            }
+            @include phone{
+                top:1445px;
+                left:25px;
+            }
+        }
+    }
+}
+
+.links{
+    position: absolute;
+    top:162em;
+    transform: translateY(-100px);
+    width:100%;
+    padding-left: 28.7%;
+
+    @include tablet{
+        width:100%;
+        position: relative;
+        top:80em;
+        left:-8.4em;
+    }
+    @include tablet-g50{
+        position: relative;
+        width:100%;
+        left:-145px;
+        top:115em;
+    }
+    @include phone{
+        width:10%;
+        top:1100px;
+        left:30px;
+    }
+    :hover{
+        background-color:#3498db;
+        transition: 1000ms;
+    }
+    
+    :hover h6{
+        visibility: visible;
+        color: #f1f1f1;
+        position: relative;
+        display: block;
+        text-align: center;
+        top:70px;
+
+        z-index: 999;
+        text-decoration:none;
+        font-family:'Poppins-M';
+        font-size: 15px;
+
+        @include tablet-g50{
+            font-size:15px;
+            text-align: center;
+            top:50px;
+        }
+    }
+    
+}
+
+
+.btn{
+    display:inline-block;
+    width:10em;
+    height:10em;
+    background-color: #f1f1f1;
+    top:10px;
+    box-shadow:0 5px 15px -5px #000070;
+    border-radius:30%;
+    color:#3498db;
+    overflow:hidden;
+    position: relative;
+
+    h6{
+        visibility: hidden;
+    }
+    @include tablet-g50{
+        width:8em;
+        height:8em;
+    }
+}
+
+.btn svg{
+    position: relative;
+    left:67.5px;
+    top:39%;
+    width:30px;
+    height:30px;
+
+    @include tablet-g50{
+        left:45%;
+        width:20px;
+        height:20px;
+    }
+}
+
+.btn:hover svg{
+    transform:translateY(-40%);
+    transition: 500ms;
+    color:#ffffff;
+}
+//Footer set
+
+$Footer-white-a: white;
+
+// Imports ^
+//         |
+.container-footer{
+    position: relative;
+    top:90em;
+    display: block;
+    background-color: #26292b;
+    width:120em;
+    height:35em;
+
+    @include tablet{
+        position: relative;
+        bottom:0em;
+        width:100%;
+        height:1000px;
+    }
+    @include tablet-g50{
+        background-color: #202122;
+        width:99.99%;
+        height:350px;
+        top:125em;
+        margin-bottom: 0px;
+    }
+    @include phone{
+        top:1200px;
+        width:720px;
+        height:750px;
+    }
+
+    a:hover{
+        color:#26292b;
+        transition: 1.75s;
+        background-color: aliceblue;
+        border-radius: 30px;
+    }
+}
+.f-logo{
+    img{
+        position: relative;
+        display: block;
+        top:15em;
+        left:14.3em;
+        width:100px;
+        height:100px;
+
+        @include tablet{
+            visibility:visible;
+            top:40em;
+            width:150px;
+            height:150px;
+            left:33.5em;
+        }
+        @include tablet-g50{
+            visibility: hidden;
+        }
+        @include phone{
+            visibility: hidden;
+        }
+    }
+    img:hover{
+        transform: rotate(720deg);
+        transition: 1.5s;
+        -moz-transition: 1.5s;
+    }
+}
+
+
+$h3c : #ffffff;
+.AV{
+    h3{
+        position: relative;
+        top:10.5em;
+        left:20em;
+        padding-left: 10em;;
+
+        display: inline-block;
+        color: #f1f1f1;
+        font-weight:bolder;
+        font-size: 18.5px;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 500;
+
+        @include tablet{
+            font-size:20px;
+            position: relative;
+            left:-7.5em;
+        }
+        @include tablet-g50{
+            font-size:13px;
+            left:0%;
+            top:-50px;
+        }
+        @include phone{
+            top:-150px;
+            display:list-item;
+            line-height:150px;
+            left:-100px;
+        }
+
+    }
+    h3:hover{
+        color:$h3c;
+        transition: 1s;
+        text-shadow: inherit black;
+        text-shadow: 0px 0px 30px #3498db;
+    }
+}
+
+.links-footer-h{
+    a{
+        position: relative;
+        top:14em;
+        left:32.5em;
+
+        width: 110px;
+        display: block;
+        line-height: 40px;
+        font-size: 17px;
+        text-decoration: none;
+        color:$Footer-white-a;
+        border-radius: 30px;
+
+        @include tablet{
+            position: relative;
+            top:14em;
+            left:2.95em;
+        }
+        @include tablet-g50{
+            font-size:10px;
+            line-height:30px;
+            left:14.54%;
+            top:-40px;
+        }
+        @include phone{
+            top:-515px;
+            left:35px;
+        }
+    }
+    a:hover{
+        opacity: 75%;
+        padding-left: 10px;
+    }
+}
+.links-footer-e{
+    a{
+        position: relative;
+        top:7em;
+        left:50.5em;
+
+        width:180px;
+        display: block;
+        line-height: 40px;
+        font-size: 17px;
+        text-decoration: none;
+        color:$Footer-white-a;
+        border-radius: 30px;
+
+        @include tablet{
+            position: relative;
+            top:7em;
+            left:22.25em;
+        }
+        @include tablet-g50{
+            font-size:10px;
+            line-height:30px;
+            left:39.5%;
+            top:-130px;
+        }
+        @include phone{
+            top:-450px;
+            left:35px;
+        }
+    }
+    a:hover{
+        opacity: 75%;
+        padding-left: 10px;
+    }
+}
+.links-footer-f{
+    a{
+        position: relative;
+        top:2.25em;
+        left:67.3em;
+    
+        width:500px;
+        display: block;
+        line-height: 40px;
+        font-size: 17px;
+        text-decoration: none;
+        color:$Footer-white-a;
+        border-radius: 30px;
+
+        @include tablet{
+            position: relative;
+            top:2.25em;
+            left:40.15em;
+        }
+        @include tablet-g50{
+            font-size:10px;
+            line-height:30px;
+            left:62%;
+            width:300px;
+            top:-190px;
+        }
+        @include phone{
+            top:-360px;
+            left:30px;
+        }
+    }
+    a:hover{
+        opacity: 75%;
+        padding-left: 10px;
+    }
+}
+$purple: #5a49f5f8;
+.inb{
+    button{
+        width:7em;
+        height:2.75em;
+        background-color: $purple;
+        border:0.5px solid $purple;
+        border-radius: 2px;
+
+        color:white;
+        font-family:'Poppins-M';
+        position: relative;
+        display:block;
+        float:right;
+        top:5.25em;
+        right:19.2em;
+        cursor: pointer;
+
+        @include tablet{
+            position: relative;
+            top:3.25em;
+            right: 5.3em;
+        }
+        @include tablet-g50{
+            width:6em;
+            height:2em;
+            font-size:12px;
+            top:-200px;
+            right:20px;
+        }
+        @include phone{
+            top:-370px;
+            right:375px;
+        }
+    }
+    button:hover{
+        background-color: transparent;
+        color: $purple;
+        transition: 1.5s;
+        border: 2.5px solid $purple;
+    }
+
+    input{
+        position: relative;
+        top:8em;
+        left:85.75em;
+
+        display: block;
+        width:30em;
+        height:2.5em;
+        border-radius:2px;
+        font-family:'Poppins-M';
+        color:rgba(223, 223, 223, 0.13);
+        padding-left: 20px;
+
+        @include tablet{
+            position: relative;
+            top:6em;
+            left:51.5em;
+            width:400px;
+            overflow:hidden;
+        }
+        @include tablet-g50{
+            position: relative;
+            top:-175px;
+            left:540px;
+            width:16.5em;
+            height:1.75em;
+            font-size:13px; 
+        }
+        @include phone{
+            top:-345px;
+            left:30px;
+        }
+    }
+    input:focus{
+        background-color: rgb(179, 179, 179);
+        color: #26292b;
+        transition: all 1.5s;
+    }
+}
+.show-out{
+    background-image: linear-gradient(to top, #8d5ac7, #b4a9e1);
+    z-index: 1;
+    background-size: cover;
+    height:16em;
+    width:67em;
+    background-position-y: 20%;
+    border-radius: 50px;
+    opacity: 80%;
+    position: absolute;
+    top:181em;
+    left:26.25em;
+
+    @include tablet{
+        width:50em;
+        height:12em;
+        margin:0px 0px 0px 0px;
+        position: relative;
+        top:95.5em;
+        left:14.9em;
+    }
+    @include tablet-g50{
+        width:500px;
+        height:100px;
+        top: 126.5em;
+        border-radius: 30px;
+        left:200px;
+    }
+    @include phone{
+        width:370px;
+        left:22.5px;
+        top:1225px;
+    }
+    h2{
+        position: absolute;
+        top:2.5em;
+        left:3em;
+        z-index: 15;
+        font-size: 30px;
+        font-weight: bold;
+        color:#000000;
+
+        @include tablet{
+            top:2em;
+        }
+        @include tablet-g50{
+            font-size:15px;
+        }
+        @include phone{
+            font-size:13px;
+        }
+    }
+    h3{
+        position: absolute;
+        top:5em;
+        left:3.7em;
+        z-index: 15;
+        font-size: 25px;
+        font-weight:400;
+
+        @include tablet{
+            top:4.2em;
+        }
+        @include tablet-g50{
+            font-size:15px;
+            left:45px;
+            top:50px;
+        }
+        @include phone{
+            font-size:12px;
+            left:37.5px;
+            top:45px;
+        }
+    }
+    button{
+        position: relative;
+        top:7.75em;
+        right:7.5em;
+        z-index: 1500;
+        display: block;
+        float:right;
+        width:11em;
+        height:3.25em;
+        box-shadow:0 5px 15px -5px #000070;
+
+        border:1px solid $purple;
+        border-radius: 10px;
+        color:white;
+        font-family:'Poppins-M';
+        cursor: pointer;
+        background-color: $purple;
+        opacity: 150;
+
+        @include tablet{
+            position: relative;
+            top: 6em;
+            right:1em;
+        }
+        @include tablet-g50{
+            width:7em;
+            height:2em;
+            border-radius: 3px;
+            top:36px;
+            right:2.5em;
+        }
+        @include phone{
+            font-size:11px;
+        }
+    }
+    button:hover{
+        background-color: transparent;
+        color: white;
+        transition: 1.5s;
+        border: 2.5px solid white;
+    }
+}
+
+.footer-tablet{
+    h5{
+        visibility: visible;
+        position: relative;
+        top:106.8em;
+        left:23%;
+        color:#eeeeee;
+        font-weight: 300;
+        opacity: 80%;
+        width:1040px;
+
+        @include tablet{
+            visibility: visible;
+            position: relative;
+            top:1350px;
+            color:rgb(243, 243, 243);
+            left:130px;
+            z-index: 100;
+            right:0px;
+        }
+        @include phone{
+            top:1100px;
+            left:0px;
+            width:400px;
+            font-size: 10px;
+            background-color: #202122;
+            text-align: center;
+        }
+    }
+}
